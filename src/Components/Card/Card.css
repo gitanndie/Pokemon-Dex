@@ -5,7 +5,8 @@ p {
 .Card {
     background: white;
     border-radius: 10px;
-}
+    border: solid 2px black;
+} 
 
 .Card__img {
     text-align: center;
