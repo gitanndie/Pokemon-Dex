@@ -1,6 +1,8 @@
 import React, { useState,useEffect} from 'react'
 import { getPokemon, getAllPokemon } from '../Services/pokemon';
 import Card from "../Card/Card"
+import Navbar from '../../Components/Navbar/Navbar';
+
 function Api () {
     const [pokemonData, setPokemonData] = useState([])
     const [nextUrl, setNextUrl] = useState('');
@@ -48,6 +50,7 @@ function Api () {
   
     return (
       <>
+      <Navbar/>
       <div>
           {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> : (
             <>
