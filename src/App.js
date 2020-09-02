@@ -9,6 +9,5 @@ function App() {
       <Api/>
     </div>
   );
-}
-
+};
 export default App;
