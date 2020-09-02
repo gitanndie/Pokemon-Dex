@@ -48,7 +48,7 @@ function Api () {
   
     return (
       <>
-       <div>
+      <div>
           {loading ? <h1 style={{ textAlign: 'center' }}>Loading...</h1> : (
             <>
               <div className="btn">
