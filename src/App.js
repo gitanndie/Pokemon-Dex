@@ -1,13 +1,17 @@
-import React from 'react';
-// import logo from './logo.svg';
-import Api from "./Components/Api/Api"
-import './App.css';
+import React from "react";
+import Pokedex from "./Pokedex";
+import Pokemon from "./Pokemon";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div>
-      <Api/>
-    </div>
-  );
-};
+const App = () => (
+  <Switch>
+    <Route exact path="/" render={(props) => <Pokedex {...props} />} />
+    <Route
+      exact
+      path="/:pokemonId"
+      render={(props) => <Pokemon {...props} />}
+    />
+  </Switch>
+);
+
 export default App;
