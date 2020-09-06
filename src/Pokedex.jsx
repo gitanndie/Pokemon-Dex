@@ -14,16 +14,17 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import { toFirstCharUppercase } from "./constants";
 import SearchIcon from "@material-ui/icons/Search";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const useStyles = makeStyles((theme) => ({
   pokedexContainer: {
-    backgroundColor: "black",
-    paddingTop: "20px",
+    paddingTop: "24px",
     paddingLeft: "50px",
     paddingRight: "50px",
   },
   cardMedia: {
     margin: "auto",
+    
   },
   cardContent: {
     textAlign: "center",
@@ -45,37 +46,43 @@ const useStyles = makeStyles((theme) => ({
     margin: "5px",
   },
 }));
-
 const Pokedex = (props) => {
   const classes = useStyles();
   const { history } = props;
   const [pokemonData, setPokemonData] = useState({});
   const [filter, setFilter] = useState("");
-
+  const [limit, setLimit] = useState(25);
+  function nextList() {
+    setLimit(limit + 25);
+  }
+  function prevList() {
+    if(limit === 25) return;
+    setLimit(limit - 25);
+  }
   useEffect(() => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=807`)
-      .then(function (response) {
-        const { data } = response;
-        const { results } = data;
-        const newPokemonData = {};
-        results.forEach((pokemon, index) => {
-          newPokemonData[index + 1] = {
-            id: index + 1,
-            name: pokemon.name,
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              index + 1
-            }.png`,
-          };
+    function fetchData() {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
+        .then(function (response) {
+          const { data } = response;
+          const { results } = data;
+          const newPokemonData = {};
+          results.forEach((pokemon, index) => {
+            newPokemonData[index + 1] = {
+              id: index + 1,
+              name: pokemon.name,
+              sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
+            };
+          });
+          setPokemonData(newPokemonData);
         });
-        setPokemonData(newPokemonData);
-      });
-  }, []);
-
+      }
+      fetchData();
+    }, [limit]);
+    // console.log(pokemonData)
   const handleSearchChange = (e) => {
     setFilter(e.target.value);
   };
-
   const getPokemonCard = (pokemonId) => {
     const { id, name, sprite } = pokemonData[pokemonId];
     return (
@@ -93,7 +100,6 @@ const Pokedex = (props) => {
       </Grid>
     );
   };
-
   return (
     <>
       <AppBar position="static">
@@ -109,14 +115,23 @@ const Pokedex = (props) => {
           </div>
         </Toolbar>
       </AppBar>
+      {/* <button onClick={prevList}>prev</button> */}
       {pokemonData ? (
-        <Grid container spacing={2} className={classes.pokedexContainer}>
-          {Object.keys(pokemonData).map(
-            (pokemonId) =>
-              pokemonData[pokemonId].name.includes(filter) &&
-              getPokemonCard(pokemonId)
-          )}
-        </Grid>
+        <>
+          <Grid container spacing={2} className={classes.pokedexContainer}>
+            { pokemonData && Object.keys(pokemonData).map(
+              (pokemonId) =>
+                pokemonData[pokemonId].name.includes(filter) &&
+                getPokemonCard(pokemonId)
+            )}
+          </Grid>
+          <div class="continer-fluid"> 
+            <div class="row"> 
+              <button type="button" className="btn btn-outline-primary btn-lg center-block d-block mx-auto" onClick={prevList}>Anterior</button>
+              <button type="button" className="btn btn-outline-primary btn-lg center-block d-block mx-auto" onClick={nextList}>Siguiente</button>
+            </div>
+          </div>  
+      </>
       ) : (
         <CircularProgress />
       )}

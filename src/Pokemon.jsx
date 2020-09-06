@@ -8,7 +8,6 @@ const Pokemon = (props) => {
   const { params } = match;
   const { pokemonId } = params;
   const [pokemon, setPokemon] = useState(undefined);
-
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
@@ -20,7 +19,6 @@ const Pokemon = (props) => {
         setPokemon(false);
       });
   }, [pokemonId]);
-
   const generatePokemonJSX = (pokemon) => {
     const { name, id, species, height, weight, types, sprites } = pokemon;
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
@@ -48,13 +46,11 @@ const Pokemon = (props) => {
       </>
     );
   };
-
   return (
     <>
       {pokemon === undefined && <CircularProgress />}
       {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
       {pokemon === false && <Typography> Pokemon not found</Typography>}
-
       {pokemon !== undefined && (
         <Button variant="contained" onClick={() => history.push("/")}>
           Regresar
@@ -63,5 +59,4 @@ const Pokemon = (props) => {
     </>
   );
 };
-
 export default Pokemon;
