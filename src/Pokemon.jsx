@@ -25,23 +25,23 @@ const Pokemon = (props) => {
     const { front_default } = sprites;
     return (
       <>
-        <Typography variant="h1">
+        <Typography variant="h2" style= {{margin: "30px"}}>
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} />
         </Typography>
-        <img style={{ width: "200px", height: "200px" }} src={fullImageUrl} />
-        <Typography variant="h3">Información</Typography>
-        <Typography>
+        <img style={{ width: "200px", height: "200px", margin: "30px"}} src={fullImageUrl} />
+        <Typography variant="h4" style= {{margin: "30px"}}>Información</Typography>
+        <Typography style= {{margin: "30px"}}>
           {"Species: "}
           <Link href={species.url}>{species.name} </Link>
         </Typography>
-        <Typography>Altura: {height} </Typography>
-        <Typography>Peso: {weight} </Typography>
-        <Typography variant="h6"> Tipo:</Typography>
+        <Typography style= {{margin: "10px"}}>Altura: {height} </Typography>
+        <Typography style= {{margin: "10px"}}>Peso: {weight} </Typography>
+        <Typography variant="h6" style= {{margin: "10px"}}>Tipo:</Typography>
         {types.map((typeInfo) => {
           const { type } = typeInfo;
           const { name } = type;
-          return <Typography key={name}> {`${name}`}</Typography>;
+          return <Typography style= {{margin: "20px"}} key={name}>{`${name}`}</Typography>;
         })}
       </>
     );
@@ -52,7 +52,7 @@ const Pokemon = (props) => {
       {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
       {pokemon === false && <Typography> Pokemon not found</Typography>}
       {pokemon !== undefined && (
-        <Button variant="contained" onClick={() => history.push("/")}>
+        <Button type="button" className="btn btn-outline-primary btn-lg center-block d-block mx-auto" variant="contained" onClick={() => history.push("/")}>
           Regresar
         </Button>
       )}
