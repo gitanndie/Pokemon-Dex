@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     margin: "auto",
-    
   },
   cardContent: {
     textAlign: "center",  
@@ -44,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "5px",
   },
   searchInput: {
-    width: "200px",
+    width: "300px",
     margin: "5px",
   },
 }));
