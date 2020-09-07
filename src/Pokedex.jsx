@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
   searchContainer: {
     display: "flex",
-    backgroundColor: fade(theme.palette.common.white, 0.15),                                           
+    backgroundColor: fade(theme.palette.common.black, 0.50),                                           
     paddingLeft: "20px",
-    paddingRight: "20px",
+    paddingRight: "50px",
     marginTop: "56px",
     marginBottom: "5px",
   },
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "5px",
   },
   searchInput: {
-    width: "300px",
+    width: "240px",
     margin: "5px",
   },
   
@@ -93,7 +93,7 @@ const Pokedex = (props) => {
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
-            style={{ width: "230px", height: "230px" }}
+            style={{ width: "190px", height: "150px" }}
           />
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
