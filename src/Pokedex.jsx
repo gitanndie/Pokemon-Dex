@@ -32,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
   },
   searchContainer: {
     display: "flex",
-    backgroundColor: fade(theme.palette.common.black, 0.50),                                           
+    backgroundColor: fade(theme.palette.common.white, 0.70),                                           
     paddingLeft: "20px",
     paddingRight: "50px",
-    marginTop: "56px",
+    marginTop: "5px",
     marginBottom: "5px",
   },
   searchIcon: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "5px",
   },
   searchInput: {
-    width: "240px",
+    width: "200px",
     margin: "5px",
   },
   
