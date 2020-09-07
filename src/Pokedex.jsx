@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: fade(theme.palette.common.white, 0.15),                                           
     paddingLeft: "20px",
     paddingRight: "20px",
-    marginTop: "5px",
+    marginTop: "56px",
     marginBottom: "5px",
   },
   searchIcon: {
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     width: "300px",
     margin: "5px",
   },
+  
 }));
 const Pokedex = (props) => {
   const classes = useStyles();
@@ -92,7 +93,7 @@ const Pokedex = (props) => {
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
-            style={{ width: "130px", height: "130px" }}
+            style={{ width: "230px", height: "230px" }}
           />
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
