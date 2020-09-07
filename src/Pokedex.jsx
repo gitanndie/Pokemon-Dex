@@ -19,16 +19,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 const useStyles = makeStyles((theme) => ({
   pokedexContainer: {
     backgroundColor: "black",  
-    paddingTop: "24px",
+    paddingTop: "20px",
     paddingLeft: "50px",
     paddingRight: "50px",
-    marginBottom: "10px",
+    marginBottom: "20px",
   },
   cardMedia: {
     margin: "auto",
   },
   cardContent: {
-    textAlign: "center",  
+    textAlign: "center", 
   },
   searchContainer: {
     display: "flex",
