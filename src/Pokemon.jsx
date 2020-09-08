@@ -24,7 +24,7 @@ const Pokemon = (props) => {
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
     const { front_default } = sprites;
     return (
-      <Card variant="outlined" style={{width:"500px", height: "750px"}}>
+      <Card variant="outlined" style={{width:"650px", height: "750px", backgroundColor:"green", color:"white"}}>
         <Typography variant="h2" style= {{margin: "30px"}}>
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} />
