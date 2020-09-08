@@ -18,7 +18,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const useStyles = makeStyles((theme) => ({
   pokedexContainer: {
-    backgroundColor: "red",  
+    backgroundColor: "white",  
     paddingTop: "20px",
     paddingLeft: "50px",
     paddingRight: "50px",
@@ -88,12 +88,12 @@ const Pokedex = (props) => {
   const getPokemonCard = (pokemonId) => {
     const { id, name, sprite } = pokemonData[pokemonId];
     return (
-      <Grid item xs={4} key={pokemonId}>
+      <Grid item xs={3} key={pokemonId}>
         <Card onClick={() => history.push(`/${id}`)}>
           <CardMedia
             className={classes.cardMedia}
             image={sprite}
-            style={{ width: "190px", height: "150px" }}
+            style={{ width: "120px", height: "130px" }}
           />
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
@@ -104,7 +104,7 @@ const Pokedex = (props) => {
   };
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" style= {{backgroundColor: "green"}}>
         <Toolbar>
           <div className={classes.searchContainer}>
             <SearchIcon className={classes.searchIcon} />
