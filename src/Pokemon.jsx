@@ -33,7 +33,7 @@ const Pokemon = (props) => {
         <Typography variant="h4" style= {{margin: "30px"}}>Información</Typography>
         <Typography style= {{margin: "30px"}}>
           {"Species: "}
-          <Link href={species.url}>{species.name} </Link>
+          <Link style= {{color: "white"}}href={species.url}>{species.name} </Link>
         </Typography>
         <Typography style= {{margin: "10px"}}>Altura: {height} </Typography>
         <Typography style= {{margin: "10px"}}>Peso: {weight} </Typography>
