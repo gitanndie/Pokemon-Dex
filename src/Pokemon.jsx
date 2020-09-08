@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Link, CircularProgress, Button } from "@material-ui/core";
+import { Typography, Link, CircularProgress, Button, Card } from "@material-ui/core";
 import { toFirstCharUppercase } from "./constants";
 import axios from "axios";
 
@@ -24,12 +24,12 @@ const Pokemon = (props) => {
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
     const { front_default } = sprites;
     return (
-      <>
+      <Card variant="outlined" style={{width:"500px", height: "750px"}}>
         <Typography variant="h2" style= {{margin: "30px"}}>
           {`${id}.`} {toFirstCharUppercase(name)}
           <img src={front_default} />
         </Typography>
-        <img style={{ width: "200px", height: "150px", margin: "30px"}} src={fullImageUrl} />
+        <img style={{ width: "210px", height: "150px", margin: "30px"}} src={fullImageUrl}/>
         <Typography variant="h4" style= {{margin: "30px"}}>Información</Typography>
         <Typography style= {{margin: "30px"}}>
           {"Species: "}
@@ -41,9 +41,10 @@ const Pokemon = (props) => {
         {types.map((typeInfo) => {
           const { type } = typeInfo;
           const { name } = type;
-          return <Typography style= {{margin: "20px"}} key={name}>{`${name}`}</Typography>;
+          return <Typography style= {{margin: "10px"}} key={name}>{`${name}`}
+          </Typography>;
         })}
-      </>
+      </Card>
     );
   };
   return (
